@@ -1,0 +1,41 @@
+    body {
+      font-family: 'Libre Franklin', sans-serif;
+      background-color: #a8e7bc;
+    }
+
+    header {
+      background-color:  #8ee7ef;
+      color: #fff;
+      padding: 10px;
+    }
+
+    footer {
+      background-color: #8ee7ef;
+      color: #000000;
+      padding: 10px;
+      text-align: center;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th,
+    td {
+      border: 1px solid #6a6a6a;
+      padding: 10px;
+    }
+
+    th {
+      background-color: #ffffff;
+    }
+
+    .py-5{
+      padding-bottom: 3rem;
+    }

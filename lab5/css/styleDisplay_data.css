@@ -1,0 +1,52 @@
+/* Стилизация заголовков */
+h1 {
+    font-size: 24px;
+    color: #333;
+    text-align: center; /* Выравниваем заголовки по центру */
+    margin: 20px 0;
+}
+
+/* Стилизация таблицы */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f0f0f0;
+}
+
+/* Стилизация изображений и контейнера */
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Выравниваем изображения по центру */
+}
+
+.filters__img {
+    margin: 10px;
+    width: 60%; /* Уменьшаем ширину изображений */
+    max-width: 300px; /* Максимальная ширина изображений */
+}
+
+.filters__img img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+footer {
+    background-color: #5a5a5a;
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+  }

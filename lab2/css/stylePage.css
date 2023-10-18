@@ -1,0 +1,84 @@
+    body {
+      font-family: 'Libre Franklin', sans-serif;
+      background-image: url(../image/white_phone.jpg);
+    }
+    /* Стилизация навигационного бара */
+header {
+  background-color: #333; /* Цвет фона навигационного бара */
+  padding: 10px 0; /* Внутренние отступы сверху и снизу */
+}
+
+nav ul {
+  list-style: none; /* Удаление стилизации маркера списка */
+  padding: 0;
+  margin: 0;
+  text-align: center; /* Выравнивание элементов по центру */
+}
+
+nav li {
+  display: inline; /* Элементы располагаются в строку */
+  margin-right: 20px; /* Отступ между элементами */
+}
+
+nav a {
+  text-decoration: none; /* Удаление подчеркивания ссылок */
+  color: #fff; /* Цвет текста ссылок */
+  font-weight: bold; /* Полужирный текст */
+}
+
+/* Стили при наведении курсора */
+nav a:hover {
+  text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+/* Дополнительные стили для разделителей */
+nav ul li.divider {
+  margin: 0 10px; /* Отступы по бокам разделителей */
+  color: #ccc; /* Цвет разделителей */
+}
+
+/* Стили при наведении курсора */
+nav a:hover {
+  text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+    img{
+      width: 100%;
+    }
+    header {
+      background-color: #5a5a5a;
+      color: #fff;
+      padding: 10px;
+    }
+
+    footer {
+      background-color: #5a5a5a;
+      color: #ffffff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th,
+    td {
+      border: 1px solid #6a6a6a;
+      padding: 10px;
+    }
+
+    th {
+      background-color: #ffffff;
+    }
+
+    .py-5{
+      padding-bottom: 3rem;
+    }
+
