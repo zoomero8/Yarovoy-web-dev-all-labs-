@@ -28,7 +28,7 @@ $imagesResult = mysqli_query($mysql, $imagesQuery);
             <th>Определение</th>
         </tr>
         <?php
-        while ($termins = mysqli_fetch_assoc($termsResult)) {
+        while ($termins = mysqli_fetch_assoc($termsResult)) { 
             echo "<tr>";
             echo "<td>" . $termins['termins'] . "</td>";
             echo "<td>" . $termins['definition'] . "</td>";
@@ -54,3 +54,4 @@ $imagesResult = mysqli_query($mysql, $imagesQuery);
       </p> г. Москва ул. Прянишникова 2А
     </footer>
 </html>
+
