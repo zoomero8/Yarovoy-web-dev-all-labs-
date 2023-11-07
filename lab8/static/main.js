@@ -104,12 +104,7 @@ function renderRecords(records) {
     }
 }
 
-function downloadData(page=1) {
-    let factsList = document.querySelector('.facts-list');
-    let url = new URL(factsList.dataset.url);
-    let perPage = document.querySelector('.per-page-btn').value;
-    url.searchParams.append('page', page);
-    url.searchParams.append('per-page', perPage);
+function downloadData(url) {
     let xhr = new XMLHttpRequest();
     xhr.open('GET', url);
     xhr.responseType = 'json';
@@ -117,12 +112,29 @@ function downloadData(page=1) {
         renderRecords(this.response.records);
         setPaginationInfo(this.response['_pagination']);
         renderPaginationElement(this.response['_pagination']);
-    }
+    };
     xhr.send();
+}
+function searchRecords() {
+    let searchInput = document.querySelector('.search-field');
+    let searchQuery = searchInput.value.trim();
+
+    let factsList = document.querySelector('.facts-list');
+    let url = new URL(factsList.dataset.url);
+    let perPage = document.querySelector('.per-page-btn').value;
+
+    url.searchParams.set('page', 1);
+    url.searchParams.set('per-page', perPage);
+    url.searchParams.set('q', searchQuery);
+
+    downloadData(url);
 }
 
 window.onload = function () {
-    downloadData();
+    downloadData(); // начальная загрузка данных
+
     document.querySelector('.pagination').onclick = pageBtnHandler;
     document.querySelector('.per-page-btn').onchange = perPageBtnHandler;
+
+    document.querySelector('.search-btn').addEventListener('click', searchRecords); 
 }
