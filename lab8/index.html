@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="static/styles.css">
     <script src="static/main.js" defer></script>
 </head>
+
 <body>
     <header class="header">
         <nav>
@@ -20,6 +22,7 @@
                 <input type="text" class="search-field">
                 <button class="search-btn">Найти</button>
             </div>
+            <div class="autocomplete-dropdown" style="display: none;"></div>
             <div class="pagination-info">
                 <span>
                     Показывать по
@@ -38,7 +41,7 @@
                     Показаны записи с <span class="current-interval-start">1</span> по <span class="current-interval-end">10</span> из <span class="total-count">190</span>
                 </span>
             </div>
-            <div class="facts-list" data-url="http://cat-facts-api.std-900.ist.mospolytech.ru/facts">
+            <div class="facts-list" data-url="http://cat-facts-api.std-900.ist.mospolytech.ru/facts?">
                 <div class="facts-list-item">
                     <div class="item-content">
                         Scottish sailer Alexander Selkirk once survived for 4 years on a deserted island thanks to feral cats that protected him
@@ -66,4 +69,5 @@
         </div>
     </main>
 </body>
+
 </html>
