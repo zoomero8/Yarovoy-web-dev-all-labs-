@@ -1,4 +1,4 @@
-//Создание кнопки пагинации
+// создает кнопку с номером стр.
 function createPageBtn(page, classes=[]) {
     let btn = document.createElement('button');
     classes.push('btn');
@@ -10,7 +10,7 @@ function createPageBtn(page, classes=[]) {
     return btn;
 }
 
-//Отображение кнопок пагинации
+// отрисовка интерфейса пагинации
 function renderPaginationElement(info) {
     let btn;
     let paginationContainer = document.querySelector('.pagination');
@@ -41,12 +41,12 @@ function renderPaginationElement(info) {
     paginationContainer.append(btn);
 }
 
-//Обработчик событый для кнопки, изменяющей кол-во записей на странице
+// обработчик кнопки "на страницу"
 function perPageBtnHandler(event) {
     downloadData(1);
 }
 
-//Отображение данных с текущей страницы
+// установка инфы о пагинации
 function setPaginationInfo(info) {
     document.querySelector('.total-count').innerHTML = info.total_count;
     let start = info.total_count > 0 ? (info.current_page - 1)*info.per_page + 1 : 0;
@@ -55,7 +55,7 @@ function setPaginationInfo(info) {
     document.querySelector('.current-interval-end').innerHTML = end;
 }
 
-//Обработчик событый для кнопок
+// обработчик кнопок страницы
 function pageBtnHandler(event) {
     if (event.target.dataset.page) {
         downloadData(event.target.dataset.page);
@@ -63,7 +63,7 @@ function pageBtnHandler(event) {
     }
 }
 
-//Создание блока с именем автора факта
+// имя автора
 function createAuthorElement(record) {
     let user = record.user || {'name': {'first': '', 'last': ''}};
     let authorElement = document.createElement('div');
@@ -72,7 +72,7 @@ function createAuthorElement(record) {
     return authorElement;
 }
 
-//Создание блока с кол-вом лайков
+// кол-во лайков
 function createUpvotesElement(record) {
     let upvotesElement = document.createElement('div');
     upvotesElement.classList.add('upvotes');
@@ -80,7 +80,7 @@ function createUpvotesElement(record) {
     return upvotesElement;
 }
 
-//Создание блока для футера с автором факта и кол-вом лайков
+// нижний колонтитул
 function createFooterElement(record) {
     let footerElement = document.createElement('div');
     footerElement.classList.add('item-footer');
@@ -89,7 +89,7 @@ function createFooterElement(record) {
     return footerElement;
 }
 
-//Создание блока для контента
+// возврат контента
 function createContentElement(record) {
     let contentElement = document.createElement('div');
     contentElement.classList.add('item-content');
@@ -97,7 +97,7 @@ function createContentElement(record) {
     return contentElement;
 }
 
-//Создание элементов
+// элемент списка, включая элементы контента и подвала.
 function createListItemElement(record) {
     let itemElement = document.createElement('div');
     itemElement.classList.add('facts-list-item');
@@ -106,7 +106,7 @@ function createListItemElement(record) {
     return itemElement;
 }
 
-//Добавление данных из API на страницу
+// отчистка списка фактов и добавление новых
 function renderRecords(records) {
     let factsList = document.querySelector('.facts-list');
     factsList.innerHTML = '';
@@ -115,7 +115,7 @@ function renderRecords(records) {
     }
 }
 
-//Загрузка данных из API
+// загрузка данных с сервера
 function downloadData(page=1) {
     let searchField = document.querySelector('.search-field').value;
 
@@ -141,14 +141,14 @@ function downloadData(page=1) {
     xhr.send();
 }
 
-//Задание 2: Функция для очистки выпадающего списка
+// отчистка выпадающего списка
 function clearAutocomplete() {
     let autocompleteDropdown = document.querySelector('.autocomplete-dropdown');
     autocompleteDropdown.innerHTML = '';
     autocompleteDropdown.style.display = 'none';
 }
 
-//Задание 2: Функция для отображения результатов в выпадающем списке
+//  заполняет и отображает выпадающий список автозаполнения с предоставленными результатами поиска.
 function displayAutocomplete(results) {
     let autocompleteDropdown = document.querySelector('.autocomplete-dropdown');
 
@@ -157,7 +157,6 @@ function displayAutocomplete(results) {
         option.classList.add('autocomplete-option');
         option.textContent = results[i];
         option.addEventListener('click', function () {
-            // При клике подставляем выбранный вариант в поле поиска
             document.querySelector('.search-field').value = results[i];
             clearAutocomplete();
             downloadData();
@@ -168,8 +167,7 @@ function displayAutocomplete(results) {
     autocompleteDropdown.style.display = 'block';
 }
 
-
-// Задание 2: Функция для обработки запроса автодополнения
+// отправления xmlhttprequest для получения подсказок автозаполнения
 function autocompleteRequest() {
     let searchField = document.querySelector('.search-field').value;
 
@@ -182,31 +180,26 @@ function autocompleteRequest() {
 
     xhr.onload = function () {
         if (this.response) {
-            // Очищаем предыдущие результаты
             clearAutocomplete();
 
-            // Отображаем результаты в выпадающем списке
             displayAutocomplete(this.response);
         }
     };
     xhr.send();
 }
 
-
-
-//задание 1
+// отчистка выпадающего списка
 function SearchdownloadData() {
     downloadData();
 
     clearAutocomplete();
 }
 
+// запуск функции downloadData при загрузке страницы и настройка слушаетелей событий
 window.onload = function () {
     downloadData();
     document.querySelector('.pagination').onclick = pageBtnHandler;
     document.querySelector('.per-page-btn').onchange = perPageBtnHandler;
-    //задание 1    
     document.querySelector('.search-btn').onclick = SearchdownloadData;
-    //задание 2
     document.querySelector('.search-field').oninput = autocompleteRequest;
 }
