@@ -118,21 +118,15 @@ function renderRecords(records) {
 // загрузка данных с сервера
 function downloadData(page=1) {
     let searchField = document.querySelector('.search-field').value;
-
     let factsList = document.querySelector('.facts-list');
     let url = new URL(factsList.dataset.url);
-
     let perPage = document.querySelector('.per-page-btn').value;
-
     url.searchParams.append('page', page);
     url.searchParams.append('per-page', perPage);
-    //задание 1
     url.searchParams.append('q', searchField);
-
     let xhr = new XMLHttpRequest();
     xhr.open('GET', url);
     xhr.responseType = 'json';
-
     xhr.onload = function () {
         renderRecords(this.response.records);
         setPaginationInfo(this.response['_pagination']);

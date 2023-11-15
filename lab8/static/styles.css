@@ -145,3 +145,26 @@ body {
     color: black;
 }
 
+.autocomplete-dropdown {
+    position: absolute;
+    background-color: #fff;
+    /*border-width: 0 5px 5px 5px;
+    border-style: solid;*/
+    /*border-color: #e63946;*/
+    max-height: 200px;
+    overflow-y: auto;
+    /*margin-top: 35px;*/
+    width: 900px;
+    /*display: none;*/
+}
+
+.autocomplete-option {
+    padding: 6px;
+    cursor: pointer;
+}
+
+.autocomplete-option:hover{
+    background-color:#d7d7d7;
+}
+
+
