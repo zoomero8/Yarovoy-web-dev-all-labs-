@@ -67,25 +67,28 @@ tr:hover {
     margin-right: 8%;
     margin-bottom: 2%;
 }
+
 .btn {
     text-decoration: none;
-    color: #1214a1;
+    color: #ffffff; /* Цвет текста кнопки (белый) */
     font-weight: bold;
-    border: 5% solid #1214a1;
-    padding: 0.8%;
-    border-radius: 5%;
+    background-color: #333333; /* Цвет фона кнопки (темно-серый) */
+    padding: 1%;
+    border: 5% solid #333333; /* Цвет границы кнопки (темно-серый) */
+    border-radius: 20px;
 }
 
 .btn:hover {
-    transition: color 0.5s, border-color 0.5s;
-    color: rgb(204, 0, 102);
-    border-color: rgb(204, 0, 102);
+    transition: color 0.5s, background-color 0.5s, border-color 0.5s;
+    color: #333333; /* Изменение цвета текста при наведении (темно-серый) */
+    background-color: #bfc0ff; /* Изменение цвета фона при наведении (синий) */
+    border-color: #bfc0ff; /* Изменение цвета границы при наведении (синий) */
 }
 
 .contact-form {
     background-color: #f2f2f2;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     margin: 0 auto;
@@ -93,5 +96,5 @@ tr:hover {
 }
 
 .form-field {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
