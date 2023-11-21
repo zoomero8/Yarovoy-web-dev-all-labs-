@@ -47,15 +47,14 @@
 
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // Получаем значения из формы и присваиваем их переменным
+            // выгрузка значений из формы
             $startArgument = (int) $_POST["startArgument"];
             $numValues = (int) $_POST["numValues"];
             $step = (int) $_POST["step"];
             $layoutType = $_POST["layoutType"];
 
-            $values = []; // Перемещение объявления и инициализации массива $values
+            $values = [];
         
-            // Вычисление значений функции и их вывод в соответствии с выбранным типом верстки
             for ($i = 0; $i < $numValues; $i++) {
                 $k = $i + 1;
                 $argument = $startArgument + ($i * $step);
@@ -68,7 +67,6 @@
                         $value = ($argument <= 10) ? (3 * pow($startArgument, 2) + 2) : (($argument > 10 && $argument < 20) ? (5 * $argument + 7) : ($argument / (22 - $startArgument)));
                     }
                     $values[] = $value;
-            
                     if ($layoutType == 'A') {
                         echo "f($argument) = $value<br><br>";
                     } elseif ($layoutType == 'B') {
@@ -96,24 +94,21 @@
                         $value = ($argument <= 10) ? (3 * pow($startArgument, 2) + 2) : (($argument > 10 && $argument < 20) ? (5 * $argument + 7) : ($argument / (22 - $startArgument)));
                     }
                     $values[] = $value;
-            
                     echo "<div class='typeE'>
                         f($argument) = $value
                     </div>";
                 }
             }
 
+            $maxim = max($values);
+            $minim = min($values);
+            $avg = array_sum($values) / count($values);
+            $summa = array_sum($values);
 
-            // Вычисление и вывод максимального, минимального, среднего арифметического и суммы значений функции
-            $max = max($values);
-            $min = min($values);
-            $average = array_sum($values) / count($values);
-            $sum = array_sum($values);
-
-            echo "<br>Максимальное значение: $max<br><br>";
-            echo "Минимальное значение: $min<br><br>";
-            echo "Среднее арифметическое: $average<br><br>";
-            echo "Сумма значений: $sum<br>";
+            echo "<br>Максимальное значение: $maxim<br><br>";
+            echo "Минимальное значение: $minim<br><br>";
+            echo "Среднее арифметическое: $avg<br><br>";
+            echo "Сумма значений: $summa<br>";
         }
         ?>
     </main>
@@ -123,7 +118,7 @@
             <?php
             echo "<footer><p>Тип верстки: $layoutType</p></footer>";
             ?>
-            &copy; 2023 Циклические алгоритмы. Условия в алгоритмах. Табулирование функций
+            2023 Циклические алгоритмы. Условия в алгоритмах. Табулирование функций
         </div>
     </footer>
 
