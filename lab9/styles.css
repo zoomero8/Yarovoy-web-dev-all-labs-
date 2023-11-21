@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Libre Franklin', sans-serif;
     background-color: rgb(241, 229, 229);
 }
 
@@ -34,13 +34,22 @@ body {
 table {
     width: 100%;
     border-collapse: collapse;
+    border-spacing: 2;
+    table-layout: fixed;
 }
 
-th,
-td {
-    padding: 1%;
-    text-align: left;
-    border-bottom: 1% solid #ddd;
+tr {
+    vertical-align: top;
+}
+
+tr:first-child {
+    margin-top: 20%; /* Задайте нужный вам отступ сверху */
+}
+
+th, td {
+    box-sizing: border-box;
+    border: 1px solid black;
+    vertical-align: top; /* Добавьте это свойство для выравнивания текста по верхнему краю ячейки */
 }
 
 th {
