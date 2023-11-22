@@ -1,0 +1,176 @@
+/* style.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    min-height: calc(50vh - фиксированная_высота_футера); /* 100vh - высота видимой части страницы */
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  main {
+    min-height: 80vh; /* Например, 80% высоты видимой области для основного контента */
+}
+  nav {
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav li {
+    margin: 0 20px;
+    display: inline-block;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  nav a:hover {
+    color: #45a049;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Стили для фотографий в одной строке */
+  .photo-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .photo {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .photo img {
+    max-width: 40%;
+    height: auto;
+    display: block;
+  }
+  
+  .photo-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.photo:hover .photo-caption {
+    opacity: 1;
+}
+
+  .box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Выравниваем изображения по центру */
+  }
+  
+  .filters__img {
+    margin: 10px;
+    width: 60%; /* Уменьшаем ширину изображений */
+    max-width: 300px; /* Максимальная ширина изображений */
+  }
+  
+  .filters__img img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  nav a:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+  }
+  
+      img{
+        width: 100%;
+      }
+      header {
+        background-color: #5a5a5a;
+        color: #fff;
+        padding: 10px;
+      }
+  
+      footer {
+        background-color: #5a5a5a;
+        color: #ffffff;
+        padding: 10px;
+        text-align: center;
+      }
+  
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+  
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+  
+      th,
+      td {
+        border: 1px solid #6a6a6a;
+        padding: 10px;
+      }
+  
+      th {
+        background-color: #ffffff;
+      }
+  
+      .py-5{
+        padding-bottom: 3rem;
+      }
+  button {
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #333;
+    border: 2px solid #333;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+    color: #fff;
+}

@@ -281,8 +281,6 @@
 
             "<br><br>";
             echo cycleWithCounter($startArgument, $numValues, $step, $layoutType, $min_value, $max_value, $sum, $min, $max);
-
-
         }
         ?>
     </main>
