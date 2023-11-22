@@ -62,15 +62,8 @@
 
 
     <footer>
-        <p>Контактная информация</p>
-        <p>Почта: yadenis8579@gmail.com</p>
-        <p>г. Москва ул. Прянишникова 2А</p>
-        
-        <?php
-            date_default_timezone_set('Europe/Moscow');
-            $currentDate = date('d.m.Y в H:i:s');
-            echo 'Сформировано ' . $currentDate;
-            ?>
+        <p>Контактная информация: archive_clothes@email.com</p>
+        <p>&copy; 2023 Наш магазин. Все права защищены.</p>
     </footer>
 </body>
 <script>
