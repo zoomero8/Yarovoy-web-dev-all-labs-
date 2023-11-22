@@ -59,10 +59,11 @@
             $numValues = isset($_POST["numValues"]) && is_numeric($_POST["numValues"]) ? (int)$_POST["numValues"] : 0;
             $step = isset($_POST["step"]) && is_numeric($_POST["step"]) ? (int)$_POST["step"] : 0;
             $layoutType = isset($_POST["layoutType"]) ? $_POST["layoutType"] : '';
-            $values = [];
+            $value = 0;
             $min = 0;
             $max = 0;
             $sum = 0;
+            $error = 'true';
 
             function calculateFunction($argument)
             {
@@ -70,13 +71,13 @@
                     return (3 * pow($argument, 2) + 2);
                 } elseif ($argument > 10 && $argument < 20) {
                     return (5 * $argument + 7);
-                } else {
-                    if ($argument == 22) {
+                } elseif ($argument == 22) {
+                        $error = 'error';
                         return 'error';
+                        
                     } else {
                         return ($argument / (22 - $argument));
                     }
-                }
             }
 
             function cycleWithCounter($x, $numValues, $step, $type, $min_value, $max_value, $sum, $min, $max)
@@ -95,15 +96,19 @@
 
                     switch ($type) {
                         case 'A':
+                            "<br><br>";
                             echo "f($x) = $value<br><br>";
                             break;
                         case 'B':
+                            "<br><br>";
                             echo "<ul><li>f($x) = $value</li></ul>";
                             break;
                         case 'C':
+                            "<br><br>";
                             echo "<ol start='$k'><li>f($x) = $value</li></ol>";
                             break;
                         case 'D':
+                            "<br><br>";
                             echo "<table border='1' cellspacing='0' cellpadding='10'>
                                     <tr>
                                         <td>Шаг</td>
@@ -139,8 +144,8 @@
                 $i = 0;
                 while ($i < $numValues && ($x <= $max_value && $x >= $min_value)) {
                     $k = $i + 1;
-                    $argument = $x;
-                    $value = calculateFunction($argument);
+
+                    $value = calculateFunction($x);
 
                     if ($value != 'error') {
                         $sum += $value;
@@ -150,15 +155,19 @@
 
                     switch ($type) {
                         case 'A':
+                            "<br><br>";
                             echo "f($x) = $value<br><br>";
                             break;
                         case 'B':
+                            "<br><br>";
                             echo "<ul><li>f($x) = $value</li></ul>";
                             break;
                         case 'C':
+                            "<br><br>";
                             echo "<ol start='$k'><li>f($x) = $value</li></ol>";
                             break;
                         case 'D':
+                            "<br><br>";
                             echo "<table border='1' cellspacing='0' cellpadding='10'>
                                     <tr>
                                         <td>Шаг</td>
@@ -172,13 +181,14 @@
                                     </tr>
                                 </table>";
                             break;
-                        case 'E':
-                            echo '<div style="border: 2px solid red; display: inline-block; margin-right: 8px;">';
-                            echo "f($x) = $value";
-                            echo '</div>';
-                            break;
-                        default:
-                            echo "f($x) = $value<br><br>";
+                            case 'E':
+                                echo '<div style="border: 2px solid red; display: block; margin-bottom: 8px;">';
+                                echo "f($x) = $value";
+                                echo '</div>';
+                                break;
+                            default:
+                                echo "f($x) = $value<br><br>";
+                            
                     }
 
                     $i++;
@@ -194,9 +204,8 @@
                 $i = 0;
                 do {
                     $k = $i + 1;
-                    $argument = $x;
 
-                    $value = calculateFunction($argument);
+                    $value = calculateFunction($x);
 
                     if ($value != 'error') {
                         $sum += $value;
@@ -206,15 +215,19 @@
 
                     switch ($type) {
                         case 'A':
+                            "<br><br>";
                             echo "f($x) = $value<br><br>";
                             break;
                         case 'B':
+                            "<br><br>";
                             echo "<ul><li>f($x) = $value</li></ul>";
                             break;
                         case 'C':
+                            "<br><br>";
                             echo "<ol start='$k'><li>f($x) = $value</li></ol>";
                             break;
                         case 'D':
+                            "<br><br>";
                             echo "<table border='1' cellspacing='0' cellpadding='10'>
                                     <tr>
                                         <td>Шаг</td>
@@ -250,23 +263,25 @@
 
             for ($i = 0; $i < $numValues; $i++) {
                 $argument = $startArgument + ($i * $step);
-
-                $value = calculateFunction($argument);
-
-                if ($value != 'error' && $value >= $min_value && $value <= $max_value) {
+            
+                
+            
+                if ($error != 'error' && $value >= $min_value && $value <= $max_value) {
                     $sum += $value;
                     $min = min($min, $value);
                     $max = max($max, $value);
+                    $value = round(calculateFunction($argument), 3);
                 } else {
-                    echo 'Не удовлетворяет отрезку минимума и максимума';
+                    echo "<br><br>";
+                    echo "<br><br>";
                     break;
                 }
             }
+            
 
             "<br><br>";
-            echo cycleWithCounter($startArgument, $numValues, $step, 'counter', $min_value, $max_value, $sum, $min, $max);
-            echo cycleWithPrecondition($startArgument, $numValues, $step, 'counter', $min_value, $max_value, $sum, $min, $max);
-            echo cycleWithPostcondition($startArgument, $numValues, $step, 'counter', $min_value, $max_value, $sum, $min, $max);
+            echo cycleWithCounter($startArgument, $numValues, $step, $layoutType, $min_value, $max_value, $sum, $min, $max);
+
 
         }
         ?>
@@ -288,3 +303,4 @@
 </body>
 
 </html>
+4 цикл
