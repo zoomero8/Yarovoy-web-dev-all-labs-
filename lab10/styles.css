@@ -1,0 +1,98 @@
+/* Общие стили для обоих файлов */
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Стили для первого HTML-файла */
+
+.header {
+    background-color: #575757;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.name {
+    font-size: 28px; /* Увеличил шрифт */
+    margin-bottom: 10px;
+}
+
+.main {
+    padding: 20px 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+textarea {
+    width: 100%;
+    border-radius: 10px; /* Закругленные углы */
+    padding: 10px;
+    margin-top: 10px; /* Добавил отступ сверху */
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 10px; /* Закругленные углы */
+    transition: background-color 0.3s; /* Плавное изменение цвета */
+}
+
+.btn:hover {
+    background-color: #8CC84B; /* Цвет при наведении */
+}
+
+/* Стили для второго HTML-файла */
+
+.src_text {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 10px; /* Закругленные углы */
+}
+
+.src_error {
+    color: red;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 2px solid #3b3737;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #3b3737;
+}
+
+/* Стили для обоих файлов (переопределение некоторых стилей) */
+
+.footer {
+    background-color: #575757;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
