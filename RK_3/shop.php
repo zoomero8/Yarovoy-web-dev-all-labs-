@@ -12,6 +12,9 @@ $termsResult = mysqli_query($mysql, $termsQuery);
 
 <head>
     <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style_shop.css">
     <title>Магазин</title>
@@ -21,7 +24,6 @@ $termsResult = mysqli_query($mysql, $termsQuery);
     <nav>
         <ul>
             <li><a href="index.php">Главная</a></li>
-            <li><a href="autentication.php">Аутентификация</a></li>
         </ul>
     </nav>
 

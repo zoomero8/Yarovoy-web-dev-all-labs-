@@ -18,9 +18,9 @@
     <header>
         <nav>
             <ul>
-            <li><a href="<?php
-            $name='Аутентификация';
-            $link='autentication.php';
+            <li><a href="<?php  
+            $name='Магазин';
+            $link='shop.php';
             $current_page=true;
             echo $link;
             ?>"<?php
@@ -30,8 +30,8 @@
             ?></a></li>
 
             <li><a href="<?php  
-            $name='Магазин';
-            $link='shop.html';
+            $name='Главная';
+            $link='index.php';
             $current_page=true;
             echo $link;
             ?>"<?php
@@ -69,7 +69,6 @@
 <script>
         // JavaScript для динамического добавления элементов навигации
         const navData = [
-            { name: 'Аутентификация', link: 'autentication.php', currentPage: true },
             { name: 'Магазин', link: 'shop.html', currentPage: false }
         ];
 
