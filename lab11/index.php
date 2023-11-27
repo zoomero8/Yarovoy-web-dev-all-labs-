@@ -36,7 +36,7 @@
         {
             $isActive = (!isset($_GET['content']) && $value == 'n/a') || (isset($_GET['content']) && $_GET['content'] == $value);
             echo '<a href="?content=' . $value . '&html_type=' . ($_GET['html_type'] ?? '') . '"'
-                . ($isActive ? ' class="selected"' : '') . '>' . ($value == 'n/a' ? 'Вся таблица умножения' : 'Таблица умножения на ' . $value) . '</a>';
+                . ($isActive ? ' class="selected"' : '') . '>' . ($value == 'n/a' ? 'Вся таблица умножения' : 'На ' . $value) . '</a>';
         }
 
         contentLink('n/a');
@@ -101,9 +101,9 @@ function outRow($n)
 {
     for ($i = 2; $i <= 9; $i++) {
         echo outNumAsLink($n);
-        echo 'x';
+        echo ' x ';
         echo outNumAsLink($i);
-        echo '=';
+        echo ' = ';
         echo outNumAsLink($i * $n) . '<br>';
     }
 }
@@ -113,7 +113,7 @@ function outRowTable($n)
     for ($i = 2; $i <= 9; $i++) {
         echo '<tr><td>';
         echo outNumAsLink($n);
-        echo 'x';
+        echo ' x ';
         echo outNumAsLink($i);
         echo '</td><td>';
         echo outNumAsLink($i * $n);

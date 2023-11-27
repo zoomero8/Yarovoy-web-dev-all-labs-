@@ -66,6 +66,9 @@ main {
     background-color: rgb(209, 186, 242);
     padding: 20px;
     text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer-wrap {
