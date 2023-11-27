@@ -51,7 +51,7 @@
 
             // Определение массивов для цифр и знаков препинания
             $cifra = array_flip(range(0, 9));
-            $punctuation = array_flip([',', '.', '-', '!', '?', "'"]);
+            $punctuation = array_flip([',', '.', '-', '!', '?', "'", ';']);
 
             // Инициализация счетчиков
             $cifraAmount = $punctuationCount = $letterCount = $upperCaseCount = $lowerCaseCount = 0;
