@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <!-- Мета-теги для корректного отображения и масштабирования на разных устройствах -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Заголовок страницы -->
     <title>Лабораторная работа №11</title>
-    <!-- Подключение шрифта Montserrat из Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <!-- Подключение внешнего файла стилей -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- Шапка страницы с формой выбора типа верстки и основным меню -->
+
 <header class="header">
     <div class="wrap">
         <!-- Форма с радиокнопками для выбора типа верстки -->
@@ -30,13 +26,9 @@
             </label>
             <button type="submit">Применить</button>
         </form>
-        <!-- Основное меню (пока пустое) -->
-        <nav class="main-menu">
-        </nav>
     </div>
 </header>
 
-<!-- Основной контент страницы -->
 <main>
     <!-- Блок с ссылками на разные разделы таблицы умножения -->
     <div class="inline" id="product_menu">
@@ -57,7 +49,7 @@
         ?>
     </div>
 
-    <!-- Секция с примерами таблиц умножения или блочных элементов в зависимости от выбранного типа верстки -->
+
     <section class="exmple">
         <?php
         // Проверка выбранного типа верстки и генерация соответствующего контента
@@ -71,7 +63,7 @@
                 outTableForm($_GET['content']);
             }
         } else {
-            // Генерация блочных элементов
+            // Генерация блочной таблицы умножения
             if (!isset($_GET['content']) || $_GET['content'] == 'n/a') {
                 for ($i = 2; $i <= 9; $i++) {
                     outDivForm($i);
@@ -84,12 +76,9 @@
     </section>
 </main>
 
-<!-- Нижний колонтитул страницы с дополнительной информацией -->
+
 <footer class="footer" id="footer">
-    <div class="wrap">
-        <!-- Список для дополнительной информации (пока пуст) -->
-        <ul class="footer-info">
-        </ul>
+    <div class="wrap"></div>
         <!-- Блок с датой и выбранными параметрами верстки и контента -->
         <div style="text-align:left">
             Сформировано <?= date('d.m.Y в H:i\'s') ?><br>
