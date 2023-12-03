@@ -13,18 +13,19 @@
 
 <header class="header">
     <div class="wrap">
+        <form method="get" action="">
+            <label>
+                <input type="radio" name="html_type" value="TABLE" <?= (isset($_GET['html_type']) && $_GET['html_type'] == 'TABLE') ? 'checked' : '' ?>>
+                Табличная верстка
+            </label>
+            <label>
+                <input type="radio" name="html_type" value="DIV" <?= (isset($_GET['html_type']) && $_GET['html_type'] == 'DIV') ? 'checked' : '' ?>>
+                Блочная верстка
+            </label>
+            <button type="submit">Применить</button>
+        </form>
         <nav class="main-menu">
-            <?php
-            function menuItem($type, $text)
-            {
-                $isActive = isset($_GET['html_type']) && $_GET['html_type'] == $type;
-                echo '<a href="?html_type=' . $type . '&content=' . ($_GET['content'] ?? '') . '"'
-                    . ($isActive ? ' class="selected"' : '') . ">$text</a>";
-            }
 
-            menuItem('TABLE', 'Табличная верстка');
-            menuItem('DIV', 'Блочная верстка');
-            ?>
         </nav>
     </div>
 </header>
@@ -69,13 +70,16 @@
     </section>
 </main>
 
+
 <footer class="footer" id="footer">
     <div class="wrap">
         <ul class="footer-info">
-            <li class="footer-info_item" style="color: black"><?= getHTMLType() ?></li>
-            <li class="footer-info_item" style="color: black"><?= getContent() ?></li>
         </ul>
-        <div style="text-align:left">Сформировано <?= date('d.m.Y в H:i\'s') ?></div>
+        <div style="text-align:left">
+            Сформировано <?= date('d.m.Y в H:i\'s') ?><br>
+            <li class="footer-info_item" style="color: black"><?= getHTMLType() ?></li> <br>
+            <li class="footer-info_item" style="color: black"><?= getContent() ?></li>
+        </div>
     </div>
 </footer>
 
