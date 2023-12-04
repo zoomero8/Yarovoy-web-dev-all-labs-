@@ -13,16 +13,10 @@
 
 <header class="header">
     <div class="wrap">
-        <!--выбор типа верстки -->
+        <!-- Выбор типа верстки -->
         <form method="get" action="">
-            <label>
-                <input type="radio" name="html_type" value="TABLE" <?= (isset($_GET['html_type']) && $_GET['html_type'] == 'TABLE') ? 'checked' : '' ?>>
-                Табличная верстка
-            </label>
-            <label>
-                <input type="radio" name="html_type" value="DIV" <?= (isset($_GET['html_type']) && $_GET['html_type'] == 'DIV') ? 'checked' : '' ?>>
-                Блочная верстка
-            </label>
+            <?php renderHtmlTypeRadioButton('TABLE', 'Табличная верстка'); ?>
+            <?php renderHtmlTypeRadioButton('DIV', 'Блочная верстка'); ?>
             <button type="submit">Применить</button>
         </form>
     </div>
@@ -32,22 +26,13 @@
     <!-- Блок с ссылками на разные разделы таблицы умножения -->
     <div class="inline" id="product_menu">
         <?php
-        // Функция для генерации ссылок с учетом текущих параметров запроса
-        function contentLink($value)
-        {
-            $isActive = (!isset($_GET['content']) && $value == 'n/a') || (isset($_GET['content']) && $_GET['content'] == $value);
-            echo '<a href="?content=' . $value . '&html_type=' . ($_GET['html_type'] ?? '') . '"'
-                . ($isActive ? ' class="selected"' : '') . '>' . ($value == 'n/a' ? 'Вся таблица умножения' : 'На ' . $value) . '</a>';
-        }
-
         // Генерация ссылок для разделов таблицы умножения
-        contentLink('n/a');
+        renderContentLink('n/a', 'Вся таблица умножения');
         for ($i = 2; $i <= 9; $i++) {
-            contentLink($i);
+            renderContentLink($i, "На $i");
         }
         ?>
     </div>
-
 
     <section class="exmple">
         <?php
@@ -56,33 +41,32 @@
             // Генерация таблицы умножения
             if (!isset($_GET['content']) || $_GET['content'] == 'n/a') {
                 for ($i = 2; $i <= 9; $i++) {
-                    outTableForm($i);
+                    renderMultiplicationTable($i);
                 }
             } else {
-                outTableForm($_GET['content']);
+                renderMultiplicationTable($_GET['content']);
             }
         } else {
             // Генерация блочной таблицы умножения
             if (!isset($_GET['content']) || $_GET['content'] == 'n/a') {
                 for ($i = 2; $i <= 9; $i++) {
-                    outDivForm($i);
+                    renderDivMultiplicationTable($i);
                 }
             } else {
-                outDivForm($_GET['content']);
+                renderDivMultiplicationTable($_GET['content']);
             }
         }
         ?>
     </section>
 </main>
 
-
 <footer class="footer" id="footer">
-    <div class="wrap"></div>
+    <div class="wrap">
         <!-- Блок с датой и выбранными параметрами верстки и контента -->
         <div style="text-align:left">
             Сформировано <?= date('d.m.Y в H:i\'s') ?><br>
-            <li class="footer-info_item" style="color: black"><?= getHTMLType() ?></li> <br>
-            <li class="footer-info_item" style="color: black"><?= getContent() ?></li>
+            <li class="footer-info_item" style="color: black"><?= getHtmlTypeText() ?></li> <br>
+            <li class="footer-info_item" style="color: black"><?= getContentText() ?></li>
         </div>
     </div>
 </footer>
@@ -91,50 +75,65 @@
 </html>
 
 <?php
-// Функция для генерации таблицы умножения по переданному множителю
-function outTableForm($n)
+// Функция для генерации радиокнопок выбора типа верстки
+function renderHtmlTypeRadioButton($value, $label)
+{
+    $checked = (isset($_GET['html_type']) && $_GET['html_type'] == $value) ? 'checked' : '';
+    echo "<label><input type='radio' name='html_type' value='$value' $checked>$label</label>";
+}
+
+// Функция для генерации ссылок на разделы таблицы умножения
+function renderContentLink($value, $label)
+{
+    $isActive = (!isset($_GET['content']) && $value == 'n/a') || (isset($_GET['content']) && $_GET['content'] == $value);
+    $url = "?content=$value&html_type=" . ($_GET['html_type'] ?? '');
+    echo "<a href='$url'" . ($isActive ? " class='selected'" : '') . ">$label</a>";
+}
+
+// Функция для генерации таблицы умножения
+function renderMultiplicationTable($n)
 {
     echo '<table class="tvRow">';
-    outRowTable($n);
+    renderRowTable($n);
     echo '</table>';
 }
 
-// Функция для генерации блочных элементов по переданному множителю
-function outDivForm($n)
+// Функция для генерации блочных элементов таблицы умножения
+function renderDivMultiplicationTable($n)
 {
     echo '<div class="bvRow">';
-    outRow($n);
+    renderRow($n);
     echo '</div>';
 }
 
 // Функция для генерации строки таблицы умножения
-function outRow($n)
+function renderRow($n)
 {
     for ($i = 2; $i <= 9; $i++) {
-        echo outNumAsLink($n);
+        renderNumAsLink($n);
         echo ' x ';
-        echo outNumAsLink($i);
+        renderNumAsLink($i);
         echo ' = ';
-        echo outNumAsLink($i * $n) . '<br>';
+        renderNumAsLink($i * $n) . '<br>';
     }
 }
 
-// Функция для генерации строки таблицы умножения
-function outRowTable($n)
+// Функция для генерации строки таблицы умножения внутри тега <tr><td></td><td></td></tr>
+function renderRowTable($n)
 {
     for ($i = 2; $i <= 9; $i++) {
         echo '<tr><td>';
-        echo outNumAsLink($n);
+        renderNumAsLink($n);
         echo ' x ';
-        echo outNumAsLink($i);
+        renderNumAsLink($i);
         echo '</td><td>';
-        echo outNumAsLink($i * $n);
+        renderNumAsLink($i * $n);
         echo '</td></tr>';
     }
 }
 
 // Функция для генерации ссылки на число или вывода числа, если оно больше 9
-function outNumAsLink($x)
+function renderNumAsLink($x)
 {
     if ($x <= 9) {
         echo '<a href="?content=' . $x . '&html_type=' . ($_GET['html_type'] ?? 'TABLE') . '">' . $x . '</a>';
@@ -144,7 +143,7 @@ function outNumAsLink($x)
 }
 
 // Функция для получения текстового представления выбранного типа верстки
-function getHTMLType()
+function getHtmlTypeText()
 {
     if (!isset($_GET['html_type']))
         return 'Верстка не выбрана';
@@ -155,7 +154,7 @@ function getHTMLType()
 }
 
 // Функция для получения текстового представления выбранного контента
-function getContent()
+function getContentText()
 {
     if (!isset($_GET['content']) || $_GET['content'] == 'n/a')
         return 'Вся таблица умножения';
