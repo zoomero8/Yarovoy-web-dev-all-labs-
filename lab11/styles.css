@@ -1,8 +1,8 @@
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Libre Franklin', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f3f3f3;
+    background-color: rgb(127, 189, 169)
 }
 
 .header {
@@ -54,7 +54,7 @@ main {
 }
 
 #product_menu .selected {
-    background-color: rgb(173, 230, 178);
+    background-color: rgb(230, 173, 173);
 }
 
 .exmple {

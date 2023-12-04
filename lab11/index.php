@@ -6,15 +6,14 @@
     <title>Лабораторная работа №11</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-
 <header class="header">
     <div class="wrap">
-        <!-- Форма с радиокнопками для выбора типа верстки -->
+        <!--выбор типа верстки -->
         <form method="get" action="">
             <label>
                 <input type="radio" name="html_type" value="TABLE" <?= (isset($_GET['html_type']) && $_GET['html_type'] == 'TABLE') ? 'checked' : '' ?>>
