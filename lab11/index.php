@@ -13,7 +13,7 @@
 
 <header class="header">
     <div class="wrap">
-        <!-- Выбор типа верстки -->
+        <!-- Выбор типа верстки  ПЕРЕДЕЛАТЬ НА КНОПКИ МЕНЮ. ЧТО ТАКОЕ ССЫЛКИ. ? В ССЫЛКАХ PHP. ЗАМЕНИТЬ РАДИОКНОПКИ. СЛЕВА ОТ ТАБЛИЦЫ. КОНКАТЕНАЦИЯ В PHP/-->
         <form method="get" action="">
             <?php renderHtmlTypeRadioButton('TABLE', 'Табличная верстка'); ?>
             <?php renderHtmlTypeRadioButton('DIV', 'Блочная верстка'); ?>
